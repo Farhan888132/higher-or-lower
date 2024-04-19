@@ -1,0 +1,318 @@
+{
+    "id": "1",
+    "cards": [
+        {
+            "code": "AS",
+            "image": "/AS.png",
+            "value": "ACE",
+            "suit": "SPADES"
+        },
+        {
+            "code": "2S",
+            "image": "/2S.png",
+            "value": "2",
+            "suit": "SPADES"
+        },
+        {
+            "code": "3S",
+            "image": "/3S.png",
+            "value": "3",
+            "suit": "SPADES"
+        },
+        {
+            "code": "4S",
+            "image": "/4S.png",
+            "value": "4",
+            "suit": "SPADES"
+        },
+        {
+            "code": "5S",
+            "image": "/5S.png",
+            "value": "5",
+            "suit": "SPADES"
+        },
+        {
+            "code": "6S",
+            "image": "/6S.png",
+            "value": "6",
+            "suit": "SPADES"
+        },
+        {
+            "code": "7S",
+            "image": "/7S.png",
+            "value": "7",
+            "suit": "SPADES"
+        },
+        {
+            "code": "8S",
+            "image": "/8S.png",
+            "value": "8",
+            "suit": "SPADES"
+        },
+        {
+            "code": "9S",
+            "image": "/9S.png",
+            "value": "9",
+            "suit": "SPADES"
+        },
+        {
+            "code": "0S",
+            "image": "/0S.png",
+            "value": "10",
+            "suit": "SPADES"
+        },
+        {
+            "code": "JS",
+            "image": "/JS.png",
+            "value": "JACK",
+            "suit": "SPADES"
+        },
+        {
+            "code": "QS",
+            "image": "/QS.png",
+            "value": "QUEEN",
+            "suit": "SPADES"
+        },
+        {
+            "code": "KS",
+            "image": "/KS.png",
+            "value": "KING",
+            "suit": "SPADES"
+        },
+        {
+            "code": "AH",
+            "image": "/AH.png",
+            "value": "ACE",
+            "suit": "HEARTS"
+        },
+        {
+            "code"  : "2H",
+            "image": "/2H.png",
+            "value": "2",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "3H",
+            "image": "/3H.png",
+            "value": "3",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "4H",
+            "image": "/4H.png",
+            "value": "4",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "5H",
+            "image": "/5H.png",
+            "value": "5",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "6H",
+            "image": "/6H.png",
+            "value": "6",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "7H",
+            "image": "/7H.png",
+            "value": "7",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "8H",
+            "image": "/8H.png",
+            "value": "8",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "9H",
+            "image": "/9H.png",
+            "value": "9",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "0H",
+            "image": "/0H.png",
+            "value": "10",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "JH",
+            "image": "/JH.png",
+            "value": "JACK",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "QH",
+            "image": "/QH.png",
+            "value": "QUEEN",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "KH",
+            "image": "/KH.png",
+            "value": "KING",
+            "suit": "HEARTS"
+        },
+        {
+            "code": "AC",
+            "image": "/AC.png",
+            "value": "ACE",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "2C",
+            "image": "/2C.png",
+            "value": "2",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "3C",
+            "image": "/3C.png",
+            "value": "3"
+
+        },
+        {
+            "code": "4C",
+            "image": "/4C.png",
+            "value": "4",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "5C",
+            "image": "/5C.png",
+            "value": "5",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "6C",
+            "image": "/6C.png",
+            "value": "6",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "7C",
+            "image": "/7C.png",
+            "value": "7",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "8C",
+            "image": "/8C.png",
+            "value": "8",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "9C",
+            "image": "/9C.png",
+            "value": "9",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "0C",
+            "image": "/0C.png",
+            "value": "10",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "JC",
+            "image": "/JC.png",
+            "value": "JACK",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "QC",
+            "image": "/QC.png",
+            "value": "QUEEN",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "KC",
+            "image": "/KC.png",
+            "value": "KING",
+            "suit": "CLUBS"
+        },
+        {
+            "code": "AD",
+            "image": "/AD.png",
+            "value": "ACE",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "2D",
+            "image": "/2D.png",
+            "value": "2",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "3D",
+            "image": "/3D.png",
+            "value": "3",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "4D",
+            "image": "/4D.png",
+            "value": "4",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "5D",
+            "image": "/5D.png",
+            "value": "5",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "6D",
+            "image": "/6D.png",
+            "value": "6",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "7D",
+            "image": "/7D.png",
+            "value": "7",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "8D",
+            "image": "/8D.png",
+            "value": "8",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "9D",
+            "image": "/9D.png",
+            "value": "9",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "0D",
+            "image": "/0D.png",
+            "value": "10",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "JD",
+            "image": "/JD.png",
+            "value": "JACK",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "QD",
+            "image": "/QD.png",
+            "value": "QUEEN",
+            "suit": "DIAMONDS"
+        },
+        {
+            "code": "KD",
+            "image": "/KD.png",
+            "value": "KING",
+            "suit": "DIAMONDS"
+        }
+    ],
+    "remaining": 52
+}
