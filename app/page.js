@@ -160,7 +160,7 @@ export default function Page() {
       <h1>Score: {score}</h1> 
       <h1>Lives: {lives}</h1>
       <h1>High Score: {highScore}</h1>
-      {highScore == 51 && <h1>Congratulations!! You've achieved the highest score possible. </h1>}
+      {highScore == 51 && (<h1>Congratulations!! You have achieved the highest score possible. </h1>)}
     </div>
     </main>
   );
