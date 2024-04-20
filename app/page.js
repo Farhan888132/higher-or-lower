@@ -110,9 +110,9 @@ export default function Page() {
     }
   }
 
-  // useEffect(() => {
-  //   shuffleDeck();
-  // }, [boolShuffle]);
+  useEffect(() => {
+    shuffleDeck();
+  }, [boolShuffle]);
 
   return (
     <main>
