@@ -1,8 +1,9 @@
 "use client";
-import Image from "next/image";
 import Deck from "./deck.json";
 import { useState, useEffect } from "react";
-import next from "next";
+import Instructions from "./instructions";
+import Table from "./table";
+import { useSound } from 'use-sound';
 
 export default function Page() {
 
@@ -13,9 +14,13 @@ export default function Page() {
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
   const [highScore, setHighScore] = useState(0);
+  const [shuffled, setShuffled] = useState(false);
+  const [insToggle, setInsToggle] = useState(false);
 
-  const values = ['2','3','4','5','6','7','8','9','10','JACK','QUEEN','KING','ACE'];
-  const suits = ['SPADES','HEARTS','CLUBS','DIAMONDS'];
+  const [playDraw] = useSound('/sounds/Draw-Card.mp3');
+  const [playShuffle] = useSound('/sounds/Card-Shuffle.mp3');
+
+  const values = ['ACE', '2','3','4','5','6','7','8','9','10','JACK','QUEEN','KING'];
 
   function  shuffle (array){
     let currentIndex = array.length;
@@ -41,9 +46,11 @@ export default function Page() {
       }
       shuffle(temp);
       setdeckOfCards({...temp});
+      playShuffle();
   };
 
   const reset = () => {
+    setShuffled(false);
     setdeckOfCards(Deck.cards);
     setDiscardPile([]);
     setRemaining(52);
@@ -53,9 +60,8 @@ export default function Page() {
   }
 
 
-  const nextCard = async () => {
-    if(remaining > 1)
-    {
+  const nextCard = () => {
+    if(remaining > 1){
       var temp = []
       for (let i = 0; i < remaining; i++) {
       temp.push(deckOfCards[i]);
@@ -65,11 +71,8 @@ export default function Page() {
       setdeckOfCards({...temp});
       setRemaining(remaining - 1);
     }
-    else
-    {
-      reset();
-    }
-    
+    else{ reset(); }
+    playDraw();
   }
 
   const resolve = (click) => {
@@ -86,20 +89,17 @@ export default function Page() {
       }
     }
     
-    if(remaining == 1)
-    {
+    if(remaining == 1){
       reset();
     }
-    else if ((click == nextCardValue) || (nextCardValue == "equal"))
-    {
+    else if ((click == nextCardValue) || (nextCardValue == "equal")){
       setScore(score + 1);
       if (score + 1 > highScore){
         setHighScore(score + 1);
       }
       nextCard();
     }
-    else
-    {
+    else{
       if (lives == 1){
         reset();
       }
@@ -110,58 +110,38 @@ export default function Page() {
     }
   }
 
-  useEffect(() => {
+  useEffect( ()  => {
     shuffleDeck();
+    setShuffled(true);
   }, [boolShuffle]);
 
   return (
-    <main>
+    <main className="bg-green-700 min-h-screen  ">
     
-    <div className="m-2 p-2 flex  justify-center">
-      {discardPile.length > 0 && (
-        <div className="m-2 p-2 float-left">
-          <h1>Previous Card</h1>
-          <Image src={discardPile[0].image} width={226} height={314} alt={discardPile[0].code} />
+    <Table discardPile={discardPile} deckOfCards={deckOfCards} remaining={remaining} shuffled={shuffled} />
+    
+    <div className="flex justify-center items-center">
+      <div className="m-10 flex items-center text-black">
+        <div className="flex flex-col mr-10">
+          <button className="m-2 p-2 bg-orange-100 rounded-md max-h-10 " onClick={reset}>Reset</button>
+          <button className="m-2 p-2 min-w-40 bg-orange-100 rounded-md max-h-10 " onClick={() => setInsToggle(!insToggle)}>{insToggle ? (<label>Hide Instructions</label>) : (<label>Show Instructions</label>) }</button>
         </div>
-      
-      )}
-
-      {remaining > 0 && (
-        <div className="m-2 p-2">
-          <h1>Card in play</h1>
-          <Image src={deckOfCards[0].image} width={226} height={314} alt={deckOfCards[0].code} />
+        <div className="flex flex-col text-center ml-10">
+          <button className="m-2 p-4 bg-orange-100 rounded-md" onClick={() => resolve("higher")}>HIGHER ⬆</button>
+          <p className="text-white font-bold">OR</p>
+          <button className="m-2 p-4 bg-orange-100 rounded-md" onClick={() => resolve("lower")}>LOWER ⬇</button>
         </div>
-      )}
-
-      <div className="m-2 p-2">
-        <h1 className="opacity-0">.</h1>
-        <Image src="/back.png" width={226} height={314} alt="back" />
-        <h1>Remaining: {remaining-1}</h1>
+      </div>
+      <div className="m-10">
+        <h1 className="mb-1 p-2">Score: {score}</h1> 
+        <h1 className="mb-1 p-2">Lives: {lives}</h1>
+        <h1 className="mb-1 p-2">High Score: {highScore}</h1>
+        {/*highScore == 51 && (<h1>Congratulations!! You have achieved the highest score possible. </h1>)*/}
       </div>
     </div>
 
-    <div className="float-right">
-      <h1>Rules:</h1>
-      <p>1. You have to guess whether the next card is higher or lower than the current card.</p>
-      <p>2. If you guess correctly, you get a point and the next card is revealed.</p>
-      <p>3. If you guess incorrectly, you lose a life and the next card is revealed.</p>
-      <p>4. If you lose all 3 lives, the game resets.</p>
-      <p>5. If you get 51 points, you win the game.</p>
-      <p>6. Aces are high</p>
-    </div>
-    
-    <div className="mt-10">
-      {/* <button className="m-2 p-2 bg-cyan-700 rounded-md" onClick={nextCard}>Next Card</button> */}
-      <button className="m-2 p-2 bg-cyan-700 rounded-md" onClick={reset}>Reset</button>
-      <button className="m-2 p-2 bg-cyan-700 rounded-md" onClick={() => resolve("higher")}>Higher</button>
-      <button className="m-2 p-2 bg-cyan-700 rounded-md" onClick={() => resolve("lower")}>Lower</button>
-    </div>
-    <div className="mt-10">
-      <h1>Score: {score}</h1> 
-      <h1>Lives: {lives}</h1>
-      <h1>High Score: {highScore}</h1>
-      {highScore == 51 && (<h1>Congratulations!! You have achieved the highest score possible. </h1>)}
-    </div>
+    {insToggle && <Instructions />}
     </main>
   );
-} 
+}
+ 
